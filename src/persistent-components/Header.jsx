@@ -29,8 +29,8 @@ const Header = () => {
       <Logo>Bhaka</Logo>
       <Options>
         <Option to='/'>Home</Option>
-        <Option to='/sign-in'>Sign Up</Option>
-        <Option to='/sign-up'>Sign In</Option>
+        <Option to='/sign-up'>Sign Up</Option>
+        <Option to='/sign-in'>Sign In</Option>
       </Options>
     </Bar>
   );

@@ -12,7 +12,7 @@ const App = () => {
     <>
       <Header />
       <Switch>
-        <Route path='/'>
+        <Route path='/' exact>
           <Landing />
         </Route>
         <Route path='/sign-in'>
