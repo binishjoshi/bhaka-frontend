@@ -1,11 +1,12 @@
-import styled from 'styled-components';
-
-const LandingContent = styled.div`
-  height: 2000px;
-`;
+import Footer from '../persistent-components/Footer';
 
 const Landing = () => {
-  return <LandingContent>Landing Page</LandingContent>;
+  return (
+    <>
+      <div class='landing-container'>Landing Page</div>
+      <Footer />
+    </>
+  );
 };
 
 export default Landing;

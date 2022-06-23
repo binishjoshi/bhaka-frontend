@@ -1,38 +1,17 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Bar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 1%;
-  position: sticky;
-  top: 0;
-  background-color: #555;
-`;
-
-const Logo = styled.div``;
-
-const Options = styled.div`
-  display: flex;
-  width: 20%;
-`;
-
-const Option = styled(Link)`
-  margin-right: 10%;
-  text-decoration: none;
-  color: inherit;
-`;
+import './header.css';
 
 const Header = () => {
   return (
-    <Bar>
-      <Logo>Bhaka</Logo>
-      <Options>
-        <Option to='/'>Home</Option>
-        <Option to='/sign-up'>Sign Up</Option>
-        <Option to='/sign-in'>Sign In</Option>
-      </Options>
-    </Bar>
+    <div class='header-container'>
+      <div class='header-logo'>Bhaka</div>
+      <div class='header-links'>
+        <Link to='/'>Home</Link>
+        <Link to='/sign-up'>Sign Up</Link>
+        <Link to='/sign-in'>Sign In</Link>
+      </div>
+    </div>
   );
 };
 

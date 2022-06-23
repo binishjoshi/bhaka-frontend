@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Footer from './persistent-components/Footer';
 import Header from './persistent-components/Header';
 
 import Landing from './routes/Landing';
@@ -22,7 +21,6 @@ const App = () => {
           <SignUp />
         </Route>
       </Switch>
-      <Footer />
     </>
   );
 };

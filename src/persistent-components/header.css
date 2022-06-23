@@ -1,0 +1,18 @@
+.header-container {
+  display: flex;
+  background-color: #1e252d;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  padding: 1%;
+}
+
+.header-links {
+  display: flex;
+}
+
+.header-links a {
+  width: 5em;
+  text-decoration: none;
+  color: inherit;
+}
