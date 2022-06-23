@@ -11,8 +11,39 @@
   display: flex;
 }
 
-.header-links a {
-  width: 5em;
+a {
   text-decoration: none;
   color: inherit;
+}
+
+.header-links a {
+  width: 5em;
+}
+
+.header-hamburger {
+  display: none;
+}
+
+.hamburger-options {
+  display: none;
+}
+
+@media screen and (max-width: 30em) {
+  .header-links {
+    display: none;
+  }
+
+  .header-hamburger {
+    display: block
+  }
+
+  .header-hamburger:hover {
+    cursor: pointer;
+  }
+
+  .hamburger-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
