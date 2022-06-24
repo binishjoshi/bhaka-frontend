@@ -25,7 +25,10 @@ const Header = () => {
         </div>
       </div>
       {isHamburgerOpen && (
-        <div className='hamburger-options'>
+        <div
+          className='hamburger-options'
+          onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
+        >
           <Link to='/'>Home</Link>
           <Link to='/sign-up'>Sign Up</Link>
           <Link to='/sign-in'>Sign In</Link>
