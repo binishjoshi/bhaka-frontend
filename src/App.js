@@ -6,21 +6,25 @@ import Landing from './routes/Landing';
 import SignIn from './routes/SignIn';
 import SignUp from './routes/SignUp';
 
+import './App.css';
+
 const App = () => {
   return (
     <>
       <Header />
-      <Switch>
-        <Route path='/' exact>
-          <Landing />
-        </Route>
-        <Route path='/sign-in'>
-          <SignIn />
-        </Route>
-        <Route path='/sign-up'>
-          <SignUp />
-        </Route>
-      </Switch>
+      <div className='body-container'>
+        <Switch>
+          <Route path='/' exact>
+            <Landing />
+          </Route>
+          <Route path='/sign-in'>
+            <SignIn />
+          </Route>
+          <Route path='/sign-up'>
+            <SignUp />
+          </Route>
+        </Switch>
+      </div>
     </>
   );
 };

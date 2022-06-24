@@ -1,0 +1,9 @@
+.body-container {
+  padding: 3em 8em;
+}
+
+@media screen and (max-width: 30em) {
+  .body-container {
+    padding: 1em 1em;
+  }
+}

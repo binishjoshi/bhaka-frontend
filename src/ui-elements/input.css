@@ -1,0 +1,46 @@
+.input-container {
+  margin: 1rem 0;
+}
+
+.input-container label,
+.input-container input,
+.input-container textarea {
+  display: block;
+}
+
+.input-container label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.input-container input,
+.input-container textarea {
+  width: 100%;
+  font: inherit;
+  border: 1px solid #ccc;
+}
+
+.input-container input:focus,
+.input-container textarea:focus {
+  outline: none;
+  background: #ebebeb;
+  border-color: #510077;    
+}
+
+.input-container--invalid label,
+.input-container--invalid p{
+  color: red;
+}
+
+.input-container--invalid p {
+  font-size: 0.5rem;
+  overflow: visible;
+}
+
+@media screen and (max-width: 30em) {
+  .input-container input,
+  .input-container textarea {
+    touch-action: pan-x pan-y;
+    height: 100%;
+  }
+}

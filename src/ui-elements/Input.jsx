@@ -2,6 +2,8 @@ import { useReducer, useEffect } from 'react';
 
 import { validate } from '../methods/validators';
 
+import './input.css';
+
 const inputReducer = (state, action) => {
   switch (action.type) {
     case 'CHANGE':
@@ -69,7 +71,13 @@ const Input = (props) => {
     );
 
   return (
-    <div>
+    <div
+      className={`input-container ${
+        !inputState.isValid &&
+        inputState.isTouched &&
+        'input-container--invalid'
+      }`}
+    >
       <label htmlFor={props.id}>{props.label}</label>
       {element}
       {!inputState.isValid && inputState.isTouched && <p>{props.errorText}</p>}
