@@ -1,6 +1,12 @@
+import { useContext } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
 import { useForm } from '../hooks/form-hook';
 
 import Input from '../ui-elements/Input';
+
+import { AuthContext } from '../context/auth-context';
 
 import {
   VALIDATOR_EMAIL,
@@ -11,6 +17,8 @@ import {
 import './form.css';
 
 const SignUp = () => {
+  const auth = useContext(AuthContext);
+  const history = useHistory();
   const [formState, inputHandler] = useForm(
     {
       username: {
@@ -29,9 +37,23 @@ const SignUp = () => {
     false
   );
 
-  const signUpHandler = (event) => {
+  const signUpHandler = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    try {
+      const responseData = await axios({
+        method: 'post',
+        url: 'http://localhost:5000/api/users/signup',
+        data: {
+          username: formState.inputs.username.value,
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value,
+        },
+      });
+      auth.login(formState.inputs.username.value, responseData.data.token);
+      history.push('/player');
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
