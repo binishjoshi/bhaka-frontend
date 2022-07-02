@@ -34,7 +34,7 @@ a {
   }
 
   .header-hamburger {
-    display: block
+    display: block;
   }
 
   .header-hamburger:hover {

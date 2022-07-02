@@ -24,11 +24,11 @@
 .input-container textarea:focus {
   outline: none;
   background: #ebebeb;
-  border-color: #510077;    
+  border-color: #510077;
 }
 
 .input-container--invalid label,
-.input-container--invalid p{
+.input-container--invalid p {
   color: red;
 }
 
