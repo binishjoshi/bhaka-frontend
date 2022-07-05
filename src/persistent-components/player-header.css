@@ -1,0 +1,23 @@
+.player-header-container {
+  display: flex;
+  background-color: #1e252d;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  padding: 1%;
+  height: 30px;
+}
+
+.searchbox-container input {
+  width: 100%;
+  font: inherit;
+  border: 0;
+  border-radius: 0.5rem;
+  color: inherit;
+  background-color: #ccc;
+  padding: 6px;
+}
+
+.searchbox-container input:focus {
+  outline: none;
+}
