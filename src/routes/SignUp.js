@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import { useForm } from '../hooks/form-hook';
 
+import Button from '../ui-elements/Button';
 import Input from '../ui-elements/Input';
 
 import { AuthContext } from '../context/auth-context';
@@ -87,9 +88,9 @@ const SignUp = () => {
           errorText='Password should be of minimum length 8 and maximum 64'
           onInput={inputHandler}
         />
-        <button type='submit' disabled={!formState.isValid}>
+        <Button type='submit' disabled={!formState.isValid}>
           Sign Up
-        </button>
+        </Button>
       </form>
     </div>
   );

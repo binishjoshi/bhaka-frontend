@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';  
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
 
 import './player-header.css';
@@ -34,7 +34,9 @@ const PlayerHeader = () => {
       </div>
       <div className='header-links'>
         <Link to='/player'>Home</Link>
-        <Link to='/' onClick={signOutHandler}>Sign Out</Link>
+        <Link to='/' onClick={signOutHandler}>
+          Sign Out
+        </Link>
       </div>
     </div>
   );

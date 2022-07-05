@@ -7,6 +7,7 @@ import { VALIDATOR_REQUIRE } from '../methods/validators';
 
 import { AuthContext } from '../context/auth-context';
 
+import Button from '../ui-elements/Button';
 import Input from '../ui-elements/Input';
 
 const SignIn = () => {
@@ -66,9 +67,9 @@ const SignIn = () => {
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}
         />
-        <button type='submit' disabled={!formState.isValid}>
+        <Button type='submit' disabled={!formState.isValid}>
           Sign In
-        </button>
+        </Button>
       </form>
     </div>
   );

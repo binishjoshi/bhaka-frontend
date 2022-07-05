@@ -17,14 +17,15 @@
 .input-container textarea {
   width: 100%;
   font: inherit;
-  border: 1px solid #ccc;
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 6px;
 }
 
 .input-container input:focus,
 .input-container textarea:focus {
   outline: none;
   background: #ebebeb;
-  border-color: #510077;
 }
 
 .input-container--invalid label,
