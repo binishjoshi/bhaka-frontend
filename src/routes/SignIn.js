@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 
 import { useForm } from '../hooks/form-hook';
+import { useHttpClient } from '../hooks/http-hook';
 import { VALIDATOR_REQUIRE } from '../methods/validators';
 
 import { AuthContext } from '../context/auth-context';
@@ -12,6 +12,7 @@ import Input from '../ui-elements/Input';
 
 const SignIn = () => {
   const auth = useContext(AuthContext);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const history = useHistory();
   const [formState, inputHandler] = useForm(
     {
@@ -30,15 +31,18 @@ const SignIn = () => {
   const signInHandler = async (event) => {
     event.preventDefault();
     try {
-      const responseData = await axios({
-        method: 'post',
-        url: 'http://localhost:5000/api/users/signin',
-        data: {
+      const responseData = await sendRequest(
+        'http://localhost:5000/api/users/signin',
+        'POST',
+        JSON.stringify({
           username: formState.inputs.username.value,
           password: formState.inputs.password.value,
-        },
-      });
-      auth.login(formState.inputs.username.value, responseData.data.token);
+        }),
+        {
+          'Content-Type': 'application/json',
+        }
+      );
+      auth.login(formState.inputs.username.value, responseData.token);
       history.push('/player');
     } catch (error) {
       console.log(error.message);
