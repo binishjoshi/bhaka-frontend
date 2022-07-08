@@ -16,6 +16,7 @@ import {
 } from '../methods/validators';
 
 import './form.css';
+import ErrorModal from '../ui-elements/ErrorModal';
 
 const SignUp = () => {
   const auth = useContext(AuthContext);
@@ -72,6 +73,7 @@ const SignUp = () => {
 
   return (
     <div className='form-container'>
+      <ErrorModal error={error} onClear={clearError} />
       <h3>Sign Up</h3>
       <form onSubmit={signUpHandler}>
         <Input
@@ -101,8 +103,8 @@ const SignUp = () => {
           errorText='Password should be of minimum length 8 and maximum 64'
           onInput={inputHandler}
         />
-        <Button type='submit' disabled={!formState.isValid}>
-          Sign Up
+        <Button type='submit' disabled={!formState.isValid || isLoading}>
+          {!isLoading ? 'Sign Up' : 'Signing Up'}
         </Button>
       </form>
     </div>

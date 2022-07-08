@@ -9,6 +9,7 @@ import { AuthContext } from '../context/auth-context';
 
 import Button from '../ui-elements/Button';
 import Input from '../ui-elements/Input';
+import ErrorModal from '../ui-elements/ErrorModal';
 
 const SignIn = () => {
   const auth = useContext(AuthContext);
@@ -46,11 +47,13 @@ const SignIn = () => {
       history.push('/player');
     } catch (error) {
       console.log(error.message);
+      console.log(error);
     }
   };
 
   return (
     <div className='form-container'>
+      <ErrorModal error={error} onClear={clearError} />
       <h3>SignIn</h3>
       <form onSubmit={signInHandler}>
         <Input
@@ -71,8 +74,8 @@ const SignIn = () => {
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}
         />
-        <Button type='submit' disabled={!formState.isValid}>
-          Sign In
+        <Button type='submit' disabled={!formState.isValid || isLoading}>
+          {!isLoading ? 'Sign In' : 'Signing in'}
         </Button>
       </form>
     </div>
