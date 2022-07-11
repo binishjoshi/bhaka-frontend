@@ -11,6 +11,8 @@ import Button from '../ui-elements/Button';
 import Input from '../ui-elements/Input';
 import ErrorModal from '../ui-elements/ErrorModal';
 
+import { lanAddress } from '../.lanAddress';
+
 const SignIn = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -33,7 +35,7 @@ const SignIn = () => {
     event.preventDefault();
     try {
       const responseData = await sendRequest(
-        'http://localhost:5000/api/users/signin',
+        `http://${lanAddress}:5000/api/users/signin`,
         'POST',
         JSON.stringify({
           username: formState.inputs.username.value,

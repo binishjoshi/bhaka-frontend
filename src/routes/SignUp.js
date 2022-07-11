@@ -18,6 +18,8 @@ import {
 import './form.css';
 import ErrorModal from '../ui-elements/ErrorModal';
 
+import { lanAddress } from '../.lanAddress';
+
 const SignUp = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -53,7 +55,7 @@ const SignUp = () => {
       //   },
       // });
       const responseData = await sendRequest(
-        'http://localhost:5000/api/users/signup',
+        `${lanAddress}:5000/api/users/signup`,
         'POST',
         JSON.stringify({
           username: formState.inputs.username.value,
