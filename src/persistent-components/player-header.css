@@ -7,23 +7,3 @@
   padding: 1%;
   height: 30px;
 }
-
-.searchbox-container input {
-  width: 100%;
-  font: inherit;
-  border: 0;
-  border-radius: 0.5rem;
-  color: inherit;
-  background-color: #ccc;
-  padding: 6px;
-}
-
-.searchbox-container input:focus {
-  outline: none;
-}
-
-@media screen and (max-width: 30em) {
-  .searchbox-container {
-    display: none;
-  }
-}

@@ -3,17 +3,13 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
 
 import HamburgerSVG from '../svg/HamburgerSVG';
+import HeaderSearch from '../ui-elements/HeaderSearch';
 
 import './player-header.css';
 
 const PlayerHeader = () => {
   const auth = useContext(AuthContext);
-  const [searchQuery, setSearchQuery] = useState('');
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-
-  const searchChangeHandler = (event) => {
-    setSearchQuery(event.target.value);
-  };
 
   const signOutHandler = () => {
     auth.logout();
@@ -33,17 +29,7 @@ const PlayerHeader = () => {
       <div className='player-header-container'>
         <div className='header-logo'>Bhaka</div>
         <div className='player-header-searchbox'>
-          <form>
-            <div className='searchbox-container'>
-              <input
-                id='search'
-                type='text'
-                placeholder='Search'
-                onChange={searchChangeHandler}
-                value={searchQuery}
-              />
-            </div>
-          </form>
+          <HeaderSearch />
         </div>
         <div className='header-links'>
           <Options />
