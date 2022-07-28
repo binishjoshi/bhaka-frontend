@@ -23,8 +23,12 @@ const HeaderSearch = ({ onChange, value }) => {
     setShowSearch(false);
   };
 
+  const searchSubmitHandler = event => {
+    event.preventDefault();
+  }
+
   return (
-    <form>
+    <form onSubmit={searchSubmitHandler}>
       <div className='searchbox-container'>
         <input
           id='search'
