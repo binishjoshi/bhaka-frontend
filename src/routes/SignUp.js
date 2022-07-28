@@ -55,7 +55,7 @@ const SignUp = () => {
       //   },
       // });
       const responseData = await sendRequest(
-        `${lanAddress}:5000/api/users/signup`,
+        `http://${lanAddress}:5000/api/users/signup`,
         'POST',
         JSON.stringify({
           username: formState.inputs.username.value,
