@@ -37,7 +37,7 @@ const HeaderSearch = () => {
   };
 
   const blurHander = () => {
-    // setShowSearch(false);
+    setShowSearch(false);
   };
 
   const searchSubmitHandler = (event) => {

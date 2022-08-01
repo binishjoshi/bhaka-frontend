@@ -45,15 +45,6 @@ const SignUp = () => {
   const signUpHandler = async (event) => {
     event.preventDefault();
     try {
-      // const responseData = await axios({
-      //   method: 'post',
-      //   url: 'http://localhost:5000/api/users/signup',
-      //   data: {
-      //     username: formState.inputs.username.value,
-      //     email: formState.inputs.email.value,
-      //     password: formState.inputs.password.value,
-      //   },
-      // });
       const responseData = await sendRequest(
         `http://${lanAddress}:5000/api/users/signup`,
         'POST',
