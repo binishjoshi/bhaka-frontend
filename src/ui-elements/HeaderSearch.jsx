@@ -1,31 +1,48 @@
 import { useState } from 'react';
 
+import { useHttpClient } from '../hooks/http-hook';
+
 import SearchSuggestions from './SearchSuggestions';
 
 import './header-search.css';
 
-const HeaderSearch = ({ onChange, value }) => {
-  const [isLoading, setIsLoading] = useState(false);
+import { lanAddress } from '../.lanAddress';
+
+const HeaderSearch = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchedSongs, setSearchedSongs] = useState([]);
+  const httpClient = useHttpClient();
 
-  const searchChangeHandler = (event) => {
+  const searchChangeHandler = async (event) => {
     setSearchQuery(event.target.value);
 
     if (event.target.value === '') {
       setShowSearch(false);
     } else {
       setShowSearch(true);
+
+      const searchResponse = await httpClient.sendRequest(
+        `http://${lanAddress}:5000/api/songs/search`,
+        'POST',
+        JSON.stringify({
+          searchQuery: event.target.value,
+        }),
+        {
+          'Content-Type': 'application/json',
+        }
+      );
+      setSearchedSongs(searchResponse);
     }
   };
 
   const blurHander = () => {
-    setShowSearch(false);
+    // setShowSearch(false);
   };
 
-  const searchSubmitHandler = event => {
+  const searchSubmitHandler = (event) => {
     event.preventDefault();
-  }
+  };
 
   return (
     <form onSubmit={searchSubmitHandler}>
@@ -38,7 +55,9 @@ const HeaderSearch = ({ onChange, value }) => {
           value={searchQuery}
           onBlur={blurHander}
         />
-        {showSearch && <SearchSuggestions isLoading={isLoading} />}
+        {showSearch && (
+          <SearchSuggestions isLoading={httpClient.isLoading} songs={searchedSongs} />
+        )}
       </div>
     </form>
   );

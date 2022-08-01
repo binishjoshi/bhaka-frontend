@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.no-result {
+  margin: 7px;
+}
+
 .search-suggestion-container {
   padding: 0.5rem;
   display: flex;
