@@ -40,6 +40,10 @@ const HeaderSearch = () => {
     setShowSearch(false);
   };
 
+  const focusHandler = () => {
+    setShowSearch(true);
+  }
+
   const searchSubmitHandler = (event) => {
     event.preventDefault();
   };
@@ -54,6 +58,7 @@ const HeaderSearch = () => {
           onChange={searchChangeHandler}
           value={searchQuery}
           onBlur={blurHander}
+          onFocus={focusHandler}
         />
         {showSearch && (
           <SearchSuggestions isLoading={httpClient.isLoading} songs={searchedSongs} />
