@@ -59,6 +59,7 @@ const HeaderSearch = () => {
           value={searchQuery}
           onBlur={blurHander}
           onFocus={focusHandler}
+          autocomplete='off'
         />
         {showSearch && (
           <SearchSuggestions isLoading={httpClient.isLoading} songs={searchedSongs} />
