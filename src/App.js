@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Header from './persistent-components/Header';
-import PlayerHeader from './persistent-components/PlayerHeader';
 
 import Landing from './routes/Landing';
 import SignIn from './routes/SignIn';
@@ -45,18 +44,7 @@ const App = () => {
   let body;
 
   if (token) {
-    body = (
-      <>
-        <PlayerHeader />
-        <div className='body-container'>
-          <Switch>
-            <Route path='/player' exact>
-              <Player />
-            </Route>
-          </Switch>
-        </div>
-      </>
-    );
+    body = <Player />;
   } else {
     body = (
       <>
