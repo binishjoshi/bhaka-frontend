@@ -1,6 +1,5 @@
 .search-suggestions-container {
-  background: #232c35;
-  border-radius: 0.5rem;
+  margin-top: 10px;
 }
 
 .loading-spinner {

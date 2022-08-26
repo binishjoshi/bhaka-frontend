@@ -16,9 +16,3 @@
 .searchbox-container input:focus {
   outline: none;
 }
-
-@media screen and (max-width: 30em) {
-  .searchbox-container {
-    display: none;
-  }
-}

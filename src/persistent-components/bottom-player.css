@@ -1,21 +1,21 @@
 .player-container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
   background: #181e24;
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 80px;
-  padding: 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 .song-info {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 }
 
 .song-details {
   display: flex;
   flex-direction: column;
+  margin-left: 5px;
 }
 
 .song-title {
@@ -24,4 +24,20 @@
 
 .song-artist {
   font-size: 0.7rem;
+}
+
+.player audio {
+  width : 90%;
+}
+
+@media screen and (min-width: 30em) {
+  .player-container {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .player-container {
+    grid-template-rows: 1fr 1fr;
+  }
 }
