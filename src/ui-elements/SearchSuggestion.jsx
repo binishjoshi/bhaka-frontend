@@ -9,7 +9,12 @@ const SearchSuggestion = ({ id, title, artist, albumCover }) => {
   const player = useContext(PlayerContext);
 
   const playSong = () => {
-    player.setCurrentSong(id);
+    player.setCurrentSong({
+      id,
+      title,
+      artist,
+      albumCover,
+    });
     player.playAudio();
   };
   return (

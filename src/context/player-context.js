@@ -1,7 +1,12 @@
 import { createContext } from 'react';
 
 export const PlayerContext = createContext({
-  currentSong: null,
+  currentSong: {
+    id: null,
+    title: null,
+    artist: null,
+    albumCover: null,
+  },
   queue: [],
   playAudio: () => {},
   setCurrentSong: () => {},
