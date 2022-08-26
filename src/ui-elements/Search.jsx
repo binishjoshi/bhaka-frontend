@@ -4,11 +4,11 @@ import { useHttpClient } from '../hooks/http-hook';
 
 import SearchSuggestions from './SearchSuggestions';
 
-import './header-search.css';
+import './search.css';
 
 import { lanAddress } from '../.lanAddress';
 
-const HeaderSearch = () => {
+const Search = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchedSongs, setSearchedSongs] = useState([]);
@@ -67,4 +67,4 @@ const HeaderSearch = () => {
   );
 };
 
-export default HeaderSearch;
+export default Search;

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Search from './player-routes/Search';
+import Search from '../ui-elements/Search';
 
 import BottomPlayer from '../persistent-components/BottomPlayer';
 import PlayerHeader from '../persistent-components/PlayerHeader';
