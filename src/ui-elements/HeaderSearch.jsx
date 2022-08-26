@@ -38,7 +38,7 @@ const HeaderSearch = () => {
 
   const focusHandler = () => {
     setShowSearch(true);
-  }
+  };
 
   const searchSubmitHandler = (event) => {
     event.preventDefault();
@@ -57,7 +57,10 @@ const HeaderSearch = () => {
           autoComplete='off'
         />
         {showSearch && (
-          <SearchSuggestions isLoading={httpClient.isLoading} songs={searchedSongs} />
+          <SearchSuggestions
+            isLoading={httpClient.isLoading}
+            songs={searchedSongs}
+          />
         )}
       </div>
     </form>

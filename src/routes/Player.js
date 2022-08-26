@@ -1,5 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+
+import Search from './player-routes/Search';
 
 import BottomPlayer from '../persistent-components/BottomPlayer';
 import PlayerHeader from '../persistent-components/PlayerHeader';
@@ -8,15 +10,22 @@ import { PlayerContext } from '../context/player-context';
 
 const Player = () => {
   const audioRefUp = useRef(null);
+  const [currentSong, setCurrentSong] = useState(null);
+  const [queue, setQueue] = useState([]);
+
   const startAudio = () => {
+    audioRefUp.current.load();
     audioRefUp.current.play();
-  }
+  };
+
   return (
     <PlayerContext.Provider
       value={{
-        currentSong: null,
-        queue: [],
-        playAudio: startAudio
+        currentSong: currentSong,
+        queue: queue,
+        playAudio: startAudio,
+        setCurrentSong: setCurrentSong,
+        setQueue: setQueue,
       }}
     >
       <PlayerHeader />
@@ -24,6 +33,9 @@ const Player = () => {
         <Switch>
           <Route path='/player' exact>
             <div>Player middle content</div>
+          </Route>
+          <Route path='/search' exact>
+            <Search />
           </Route>
         </Switch>
       </div>

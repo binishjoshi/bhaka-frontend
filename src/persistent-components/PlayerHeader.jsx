@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
 
 import HamburgerSVG from '../svg/HamburgerSVG';
-import HeaderSearch from '../ui-elements/HeaderSearch';
 
 import './player-header.css';
 
@@ -18,6 +17,7 @@ const PlayerHeader = () => {
   const Options = () => (
     <>
       <Link to='/player'>Home</Link>
+      <Link to='/search'>Search</Link>
       <Link to='/' onClick={signOutHandler}>
         Sign Out
       </Link>
@@ -28,9 +28,6 @@ const PlayerHeader = () => {
     <>
       <div className='player-header-container'>
         <div className='header-logo'>Bhaka</div>
-        <div className='player-header-searchbox'>
-          <HeaderSearch />
-        </div>
         <div className='header-links'>
           <Options />
         </div>

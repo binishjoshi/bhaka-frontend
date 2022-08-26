@@ -1,8 +1,11 @@
-import { forwardRef } from 'react';
+import { useContext, forwardRef } from 'react';
+
+import { PlayerContext } from '../context/player-context';
 
 import './bottom-player.css';
 
 const BottomPlayer = forwardRef((props, ref) => {
+  const player = useContext(PlayerContext);
   return (
     <div className='player-container'>
       <div className='song-info'>
@@ -20,7 +23,7 @@ const BottomPlayer = forwardRef((props, ref) => {
       <div className='player'>
         <audio controls ref={ref}>
           <source
-            src='http://localhost:5000/api/songs/stream/b753af91-d6ce-4fad-946a-ba6c9e2d7189/45c9b573-7ec6-4e89-88d1-1e837771f44f'
+            src={`http://localhost:5000/api/songs/stream/${player.currentSong}/45c9b573-7ec6-4e89-88d1-1e837771f44f`}
             type='audio/ogg'
           />
         </audio>

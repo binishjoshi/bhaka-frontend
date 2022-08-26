@@ -11,13 +11,18 @@ const SearchSuggestions = ({ isLoading, songs }) => {
         </div>
       );
     } else if (songs.length === 0) {
-      return <div className='no-result'><span>No results</span></div>;
+      return (
+        <div className='no-result'>
+          <span>No results</span>
+        </div>
+      );
     } else {
       return (
         <ul>
           {songs.map((song) => (
             <SearchSuggestion
               key={song.id}
+              id={song.id}
               title={song.title}
               artist={song.artist}
               albumCover={song.coverArt}

@@ -5,13 +5,13 @@ import { lanAddress } from '../.lanAddress';
 import PlayButtonSVG from '../svg/PlayButtonSVG';
 import { useContext } from 'react';
 
-const SearchSuggestion = ({ title, artist, albumCover }) => {
+const SearchSuggestion = ({ id, title, artist, albumCover }) => {
   const player = useContext(PlayerContext);
 
   const playSong = () => {
-    console.log('click');
+    player.setCurrentSong(id);
     player.playAudio();
-  }
+  };
   return (
     <li>
       <div className='search-suggestion-container'>
