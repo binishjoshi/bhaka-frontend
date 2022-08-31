@@ -72,7 +72,11 @@ const SearchSuggestion = ({ id, title, artist, albumCover }) => {
           style={styles.popper}
           {...attributes.popper}
         >
-          Add to queue
+          <ul>
+            <li>Add to queue</li>
+            <li>Like</li>
+            <li>Add to playlist</li>
+          </ul>
           <div ref={setArrowElement} style={styles.arrow} />
         </div>
       </div>

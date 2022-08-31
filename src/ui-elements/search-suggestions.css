@@ -79,6 +79,13 @@
 
 .popper {
   display: none;
+  background: #071827;
+  padding: 6px;
+  border-radius: 0.5rem;
+}
+
+.popper ul li:hover {
+  background: #1c63a1;
 }
 
 .popper[data-show] {
