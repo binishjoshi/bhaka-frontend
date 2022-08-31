@@ -15,9 +15,13 @@ const SearchSuggestion = ({ id, title, artist, albumCover }) => {
   const [popperElement, setPopperElement] = useState(null);
   const [arrowElement, setArrowElement] = useState(null);
   const [isPopperVisible, setIsPopperVisible] = useState(false);
-  const { styles, attributes, update } = usePopper(referenceElement, popperElement, {
-    modifiers: [{ name: 'arrow', options: { element: arrowElement } }],
-  });
+  const { styles, attributes, update } = usePopper(
+    referenceElement,
+    popperElement,
+    {
+      modifiers: [{ name: 'arrow', options: { element: arrowElement } }],
+    }
+  );
 
   const playSong = () => {
     player.setCurrentSong({
@@ -55,10 +59,19 @@ const SearchSuggestion = ({ id, title, artist, albumCover }) => {
             <h6>{artist}</h6>
           </div>
         </div>
-        <div className='options' onClick={isPopperVisible ? hidePopper : showPopper} ref={setReferenceElement}>
+        <div
+          className='options'
+          onClick={isPopperVisible ? hidePopper : showPopper}
+          ref={setReferenceElement}
+        >
           <ThreeDotVerticalSVG />
         </div>
-        <div className='popper' ref={setPopperElement} style={styles.popper} {...attributes.popper}>
+        <div
+          className='popper'
+          ref={setPopperElement}
+          style={styles.popper}
+          {...attributes.popper}
+        >
           Add to queue
           <div ref={setArrowElement} style={styles.arrow} />
         </div>
