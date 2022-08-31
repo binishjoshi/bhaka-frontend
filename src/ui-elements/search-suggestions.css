@@ -25,6 +25,12 @@
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-suggestion-info {
+  display: flex;
+  flex-direction: row;
 }
 
 .search-suggestion-container:hover {
@@ -69,4 +75,12 @@
 .play-button {
   display: none;
   position: absolute;
+}
+
+.popper {
+  display: none;
+}
+
+.popper[data-show] {
+  display: block;
 }
