@@ -1,4 +1,4 @@
-import { useContext, forwardRef } from 'react';
+import { useContext, useEffect, forwardRef } from 'react';
 
 import { PlayerContext } from '../context/player-context';
 
@@ -8,6 +8,21 @@ import './bottom-player.css';
 
 const BottomPlayer = forwardRef((props, ref) => {
   const player = useContext(PlayerContext);
+
+  const nextSong = () => {
+    if (player.queue.length === 0) return;
+    player.setCurrentSong(player.queue[0]);
+    player.queue.shift();
+    player.setNext(true);
+  };
+
+  useEffect(() => {
+    if (player.currentSong !== null && player.next) {
+      player.playAudio();
+      player.setNext(false);
+    }
+  });
+
   return (
     <div className='player-container'>
       <div className='song-info'>
@@ -31,7 +46,7 @@ const BottomPlayer = forwardRef((props, ref) => {
         </div>
       </div>
       <div className='player'>
-        <audio controls ref={ref}>
+        <audio controls ref={ref} onEnded={nextSong}>
           <source
             src={`http://${lanAddress}:5000/api/songs/stream/${
               player.currentSong === null ? 'none' : player.currentSong.id

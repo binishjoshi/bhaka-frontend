@@ -33,6 +33,10 @@ const SearchSuggestion = ({ id, title, artist, albumCover }) => {
     player.playAudio();
   };
 
+  const queueSong = () => {
+    player.setQueue([...player.queue, { id, title, artist, albumCover }]);
+  };
+
   const showPopper = () => {
     popperElement.setAttribute('data-show', '');
     popperElement.addEventListener('mouseleave', hidePopper);
@@ -73,7 +77,7 @@ const SearchSuggestion = ({ id, title, artist, albumCover }) => {
           {...attributes.popper}
         >
           <ul>
-            <li>Add to queue</li>
+            <li onClick={queueSong}>Add to queue</li>
             <li>Like</li>
             <li>Add to playlist</li>
           </ul>

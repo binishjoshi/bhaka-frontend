@@ -8,6 +8,8 @@ export const PlayerContext = createContext({
     albumCover: null,
   },
   queue: [],
+  next: false,
+  setNext: () => {},
   playAudio: () => {},
   setCurrentSong: () => {},
   setQueue: () => {},

@@ -12,6 +12,7 @@ const Player = () => {
   const audioRefUp = useRef(null);
   const [currentSong, setCurrentSong] = useState(null);
   const [queue, setQueue] = useState([]);
+  const [next, setNext] = useState(false);
 
   const startAudio = () => {
     audioRefUp.current.load();
@@ -23,9 +24,11 @@ const Player = () => {
       value={{
         currentSong: currentSong,
         queue: queue,
+        next: next,
         playAudio: startAudio,
         setCurrentSong: setCurrentSong,
         setQueue: setQueue,
+        setNext: setNext,
       }}
     >
       <PlayerHeader />
