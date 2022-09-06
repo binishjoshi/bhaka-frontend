@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useRef } from 'react';
 
 import { validate } from '../methods/validators';
 
@@ -29,11 +29,16 @@ const Input = (props) => {
     isValid: props.initialValidity || false,
   });
 
+  const inputRef = useRef(null);
+
   const { id, onInput } = props;
   const { value, isValid } = inputState;
 
   useEffect(() => {
     onInput(id, value, isValid);
+    if (props.id == 'username') {
+      inputRef.current.focus();
+    }
   }, [id, value, isValid, onInput]);
 
   const changeHandler = (event) => {
@@ -59,6 +64,7 @@ const Input = (props) => {
         onChange={changeHandler}
         onBlur={blurHandler}
         value={inputState.value}
+        ref={inputRef}
       />
     ) : (
       <textarea
