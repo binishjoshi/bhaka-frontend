@@ -36,7 +36,7 @@ const Input = (props) => {
 
   useEffect(() => {
     onInput(id, value, isValid);
-    if (props.id == 'username') {
+    if (id === 'username') {
       inputRef.current.focus();
     }
   }, [id, value, isValid, onInput]);
