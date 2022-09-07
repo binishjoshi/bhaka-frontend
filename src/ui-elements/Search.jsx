@@ -14,9 +14,13 @@ const Search = () => {
   const [searchedSongs, setSearchedSongs] = useState([]);
   const httpClient = useHttpClient();
   const searchBoxRef = useRef(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
-    searchBoxRef.current.focus();
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      searchBoxRef.current.focus();
+    }
   });
 
   const searchChangeHandler = async (event) => {
