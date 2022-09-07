@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { useHttpClient } from '../hooks/http-hook';
 
@@ -13,6 +13,11 @@ const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchedSongs, setSearchedSongs] = useState([]);
   const httpClient = useHttpClient();
+  const searchBoxRef = useRef(null);
+
+  useEffect(() => {
+    searchBoxRef.current.focus();
+  })
 
   const searchChangeHandler = async (event) => {
     setSearchQuery(event.target.value);
@@ -55,6 +60,7 @@ const Search = () => {
           value={searchQuery}
           onFocus={focusHandler}
           autoComplete='off'
+          ref={searchBoxRef}
         />
         {showSearch && (
           <SearchSuggestions
