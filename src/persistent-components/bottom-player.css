@@ -26,8 +26,23 @@
   font-size: 0.7rem;
 }
 
+.player {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+
 .player audio {
   width: 90%;
+}
+
+.player-external-control {
+  display: flex;
+  column-gap: 10px;
+}
+
+.player-external-control svg:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 30em) {
@@ -39,5 +54,9 @@
 @media screen and (max-width: 30em) {
   .player-container {
     grid-template-rows: 1fr 1fr;
+  }
+
+  .player audio {
+    margin-right: 30px;
   }
 }

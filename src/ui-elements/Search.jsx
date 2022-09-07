@@ -17,7 +17,7 @@ const Search = () => {
 
   useEffect(() => {
     searchBoxRef.current.focus();
-  })
+  });
 
   const searchChangeHandler = async (event) => {
     setSearchQuery(event.target.value);

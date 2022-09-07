@@ -5,6 +5,8 @@ import { PlayerContext } from '../context/player-context';
 import { lanAddress } from '../.lanAddress';
 
 import './bottom-player.css';
+import PreviousButtonSVG from '../svg/PreviousButtonSVG';
+import NextButtonSVG from '../svg/NextButtonSVG';
 
 const BottomPlayer = forwardRef((props, ref) => {
   const player = useContext(PlayerContext);
@@ -46,6 +48,10 @@ const BottomPlayer = forwardRef((props, ref) => {
         </div>
       </div>
       <div className='player'>
+        <div className='player-external-control'>
+          <PreviousButtonSVG />
+          <NextButtonSVG />
+        </div>
         <audio controls ref={ref} onEnded={nextSong}>
           <source
             src={`http://${lanAddress}:5000/api/songs/stream/${
