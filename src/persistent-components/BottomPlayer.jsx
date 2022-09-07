@@ -50,7 +50,7 @@ const BottomPlayer = forwardRef((props, ref) => {
       <div className='player'>
         <div className='player-external-control'>
           <PreviousButtonSVG />
-          <NextButtonSVG />
+          <NextButtonSVG onClick={nextSong} />
         </div>
         <audio controls ref={ref} onEnded={nextSong}>
           <source
