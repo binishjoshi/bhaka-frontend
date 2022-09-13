@@ -41,13 +41,11 @@ const App = () => {
     setToken(null);
     setUsername(null);
     localStorage.removeItem('userData');
+    setAccountType(null);
   }, []);
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userData'));
-    if (storedData && storedData.token) {
-      login(storedData.username, storedData.token);
-    }
     const checkUser = async (token) => {
       try {
         const response = await sendRequest(
@@ -59,14 +57,17 @@ const App = () => {
           }
         );
         setAccountType(response.result);
-        setChecking(false);
       } catch (error) {
         console.log(error);
         console.log(error.message);
         return null;
       }
     };
-    checkUser(storedData.token);
+    if (storedData && storedData.token) {
+      login(storedData.username, storedData.token);
+      checkUser(storedData.token);
+    }
+    setChecking(false);
   }, [login, sendRequest]);
 
   let body;
@@ -74,7 +75,7 @@ const App = () => {
   if (accountType === 'userAccount') {
     body = <Player />;
   } else if (accountType === 'artistAccount') {
-    body = <div>artist account</div>;
+    body = <ArtistAccount />;
   } else if (checking) {
     body = <div>Loading...</div>;
   } else {
