@@ -13,7 +13,7 @@ import ErrorModal from '../ui-elements/ErrorModal';
 
 import { lanAddress } from '../.lanAddress';
 
-const SignIn = () => {
+const SignIn = ({ route }) => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const history = useHistory();
@@ -35,7 +35,7 @@ const SignIn = () => {
     event.preventDefault();
     try {
       const responseData = await sendRequest(
-        `http://${lanAddress}:5000/api/users/signin`,
+        `http://${lanAddress}:5000/api/${route ? route : 'users'}/signin`,
         'POST',
         JSON.stringify({
           username: formState.inputs.username.value,
@@ -46,7 +46,11 @@ const SignIn = () => {
         }
       );
       auth.login(formState.inputs.username.value, responseData.token);
-      history.push('/player');
+      if (route) {
+        history.push('/artist-account');
+      } else {
+        history.push('/player');
+      }
     } catch (error) {
       console.log(error.message);
       console.log(error);

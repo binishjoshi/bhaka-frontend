@@ -20,7 +20,7 @@ import ErrorModal from '../ui-elements/ErrorModal';
 
 import { lanAddress } from '../.lanAddress';
 
-const SignUp = () => {
+const SignUp = ({ route }) => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const history = useHistory();
@@ -46,7 +46,7 @@ const SignUp = () => {
     event.preventDefault();
     try {
       const responseData = await sendRequest(
-        `http://${lanAddress}:5000/api/users/signup`,
+        `http://${lanAddress}:5000/api/${route ? route : 'users'}/signup`,
         'POST',
         JSON.stringify({
           username: formState.inputs.username.value,
@@ -58,7 +58,11 @@ const SignUp = () => {
         }
       );
       auth.login(formState.inputs.username.value, responseData.token);
-      history.push('/player');
+      if (route) {
+        history.push('/artist-account');
+      } else {
+        history.push('/player');
+      }
     } catch (error) {
       console.log(error.message);
     }
