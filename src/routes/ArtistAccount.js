@@ -1,5 +1,12 @@
+import UserHeader from '../persistent-components/UserHeader';
+
 const ArtistAccount = () => {
-  return <div>ArtistAccount page</div>;
+  return (
+    <>
+      <UserHeader accountType='artistAccount' />
+      artist account
+    </>
+  );
 };
 
 export default ArtistAccount;

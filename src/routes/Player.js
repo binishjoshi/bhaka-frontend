@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Search from '../ui-elements/Search';
 
 import BottomPlayer from '../persistent-components/BottomPlayer';
-import PlayerHeader from '../persistent-components/PlayerHeader';
+import UserHeader from '../persistent-components/UserHeader';
 
 import { PlayerContext } from '../context/player-context';
 
@@ -31,7 +31,7 @@ const Player = () => {
         setNext: setNext,
       }}
     >
-      <PlayerHeader />
+      <UserHeader accountType='userAccount' />
       <div className='body-container'>
         <Switch>
           <Route path='/player' exact>

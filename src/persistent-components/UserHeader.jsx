@@ -4,9 +4,9 @@ import { AuthContext } from '../context/auth-context';
 
 import HamburgerSVG from '../svg/HamburgerSVG';
 
-import './player-header.css';
+import './user-header.css';
 
-const PlayerHeader = () => {
+const UserHeader = ({ accountType }) => {
   const auth = useContext(AuthContext);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
@@ -14,15 +14,29 @@ const PlayerHeader = () => {
     auth.logout();
   };
 
-  const Options = () => (
-    <>
-      <Link to='/player'>Home</Link>
-      <Link to='/search'>Search</Link>
-      <Link to='/' onClick={signOutHandler}>
-        Sign Out
-      </Link>
-    </>
-  );
+  const Options = () => {
+    if (accountType === 'userAccount') {
+      return (
+        <>
+          <Link to='/player'>Home</Link>
+          <Link to='/search'>Search</Link>
+          <Link to='/' onClick={signOutHandler}>
+            Sign Out
+          </Link>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Link to='/create-artist'>Create Artist</Link>
+          <Link to='/release-album'>Release Album</Link>
+          <Link to='/' onClick={signOutHandler}>
+            Sign Out
+          </Link>
+        </>
+      );
+    }
+  };
 
   return (
     <>
@@ -50,4 +64,4 @@ const PlayerHeader = () => {
   );
 };
 
-export default PlayerHeader;
+export default UserHeader;

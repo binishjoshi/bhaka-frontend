@@ -68,7 +68,7 @@ const App = () => {
       checkUser(storedData.token);
     }
     setChecking(false);
-  }, [login, sendRequest]);
+  }, [login, sendRequest, token]);
 
   let body;
 
@@ -98,9 +98,6 @@ const App = () => {
             </Route>
             <Route path='/aritst-account-signin'>
               <SignIn route='artist-accounts' />
-            </Route>
-            <Route path='/artist-account'>
-              <ArtistAccount />
             </Route>
           </Switch>
         </div>

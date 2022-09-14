@@ -10,6 +10,8 @@
 
 .header-links {
   display: flex;
+  min-width: 30%;
+  justify-content: space-around;
 }
 
 a {
@@ -17,9 +19,9 @@ a {
   color: inherit;
 }
 
-.header-links a {
+/* .header-links a {
   width: 5em;
-}
+} */
 
 .header-hamburger {
   display: none;
