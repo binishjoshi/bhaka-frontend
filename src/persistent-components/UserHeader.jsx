@@ -28,8 +28,8 @@ const UserHeader = ({ accountType }) => {
     } else {
       return (
         <>
-          <Link to='/create-artist'>Create Artist</Link>
-          <Link to='/release-album'>Release Album</Link>
+          <Link to='/artist-status'>Artist Status</Link>
+          <Link to='/album-status'>Album Status</Link>
           <Link to='/' onClick={signOutHandler}>
             Sign Out
           </Link>
