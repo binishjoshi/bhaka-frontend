@@ -1,0 +1,13 @@
+.image-upload-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.image-upload-ui {
+  margin-bottom: 2rem
+}
+
+.image-preview-container img {
+  height: 300px;
+}
