@@ -54,9 +54,11 @@ const BottomPlayer = forwardRef((props, ref) => {
         </div>
         <audio controls ref={ref} onEnded={nextSong}>
           <source
-            src={`http://${lanAddress}:5000/api/songs/stream/${
-              player.currentSong === null ? 'none' : player.currentSong.id
-            }/868c4ce2-ff4b-47cf-82e4-4fe35fe5a279`}
+            src={
+              player.currentSong === null
+                ? ''
+                : `http://${lanAddress}:5000/api/songs/stream/${player.currentSong.id}/12e66066-38c7-4a3d-b357-b68ef2249e0c`
+            }
             type='audio/ogg'
           />
         </audio>
