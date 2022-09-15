@@ -55,8 +55,10 @@ const Input = (props) => {
     });
   };
 
-  const element =
-    props.element === 'input' ? (
+  let element;
+
+  if (props.element === 'input') {
+    element = (
       <input
         id={props.id}
         type={props.type}
@@ -66,7 +68,20 @@ const Input = (props) => {
         value={inputState.value}
         ref={inputRef}
       />
-    ) : (
+    );
+  } else if (props.element === 'option') {
+    element = (
+      <select id={props.id} onChange={changeHandler}>
+        <option value=''>Select</option>
+        {props.options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.optionName}
+          </option>
+        ))}
+      </select>
+    );
+  } else {
+    element = (
       <textarea
         id={props.id}
         rows={props.row || 3}
@@ -75,6 +90,7 @@ const Input = (props) => {
         value={inputState.value}
       />
     );
+  }
 
   return (
     <div

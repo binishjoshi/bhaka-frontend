@@ -67,7 +67,11 @@ const NewArtist = () => {
       <Modal
         header='Artist successfully created'
         show={createSuccess}
-        footer={<Link to={`/status/artist/${artistId}`}>Go to artist status page</Link>}
+        footer={
+          <Link to={`/status/artist/${artistId}`}>
+            Go to artist status page
+          </Link>
+        }
       />
       <form onSubmit={formSubmitHandler}>
         <Input

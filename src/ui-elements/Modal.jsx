@@ -27,10 +27,10 @@ const ModalOverlay = (props) => {
 };
 
 const Modal = (props) => {
-  console.log(
-    `%cTodo: add CSS Transitions later on`,
-    'background: yellow; color: #444; padding: 5px; border-radius: 20px;'
-  );
+  // console.log(
+  //   `%cTodo: add CSS Transitions later on`,
+  //   'background: yellow; color: #444; padding: 5px; border-radius: 20px;'
+  // );
   return (
     <>
       {props.show && <Backdrop onClick={props.onCancel} />}
