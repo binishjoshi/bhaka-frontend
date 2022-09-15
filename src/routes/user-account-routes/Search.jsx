@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 
-import { useHttpClient } from '../hooks/http-hook';
+import { useHttpClient } from '../../hooks/http-hook';
 
-import SearchSuggestions from './SearchSuggestions';
+import SearchSuggestions from '../../ui-elements/SearchSuggestions';
 
 import './search.css';
 
-import { lanAddress } from '../.lanAddress';
+import { lanAddress } from '../../.lanAddress';
 
 const Search = () => {
   const [showSearch, setShowSearch] = useState(false);

@@ -5,6 +5,8 @@ export const PlayerContext = createContext({
     id: null,
     title: null,
     artist: null,
+    artistId: null,
+    albumId: null,
     albumCover: null,
   },
   queue: [],

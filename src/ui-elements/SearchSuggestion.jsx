@@ -7,8 +7,16 @@ import { lanAddress } from '../.lanAddress';
 
 import PlayButtonSVG from '../svg/PlayButtonSVG';
 import ThreeDotVerticalSVG from '../svg/ThreeDotVerticalSVG';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-const SearchSuggestion = ({ id, title, artist, albumCover }) => {
+const SearchSuggestion = ({
+  id,
+  title,
+  artist,
+  artistId,
+  albumId,
+  albumCover,
+}) => {
   const player = useContext(PlayerContext);
   const suggestionContainerRef = createRef(null);
   const [referenceElement, setReferenceElement] = useState(null);
@@ -28,6 +36,8 @@ const SearchSuggestion = ({ id, title, artist, albumCover }) => {
       id,
       title,
       artist,
+      artistId,
+      albumId,
       albumCover,
     });
     player.playAudio();
@@ -59,8 +69,12 @@ const SearchSuggestion = ({ id, title, artist, albumCover }) => {
             <PlayButtonSVG className='play-button' onClick={playSong} />
           </div>
           <div className='search-info'>
-            <h4>{title}</h4>
-            <h6>{artist}</h6>
+            <Link to={`/album/${albumId}`}>
+              <h4>{title}</h4>
+            </Link>
+            <Link to={`/artist/${artistId}`}>
+              <h6>{artist}</h6>
+            </Link>
           </div>
         </div>
         <div

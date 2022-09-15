@@ -7,6 +7,7 @@ import { lanAddress } from '../.lanAddress';
 import './bottom-player.css';
 import PreviousButtonSVG from '../svg/PreviousButtonSVG';
 import NextButtonSVG from '../svg/NextButtonSVG';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const BottomPlayer = forwardRef((props, ref) => {
   const player = useContext(PlayerContext);
@@ -19,6 +20,7 @@ const BottomPlayer = forwardRef((props, ref) => {
   };
 
   useEffect(() => {
+    console.log(player.currentSong);
     if (player.currentSong !== null && player.next) {
       player.playAudio();
       player.setNext(false);
@@ -38,14 +40,20 @@ const BottomPlayer = forwardRef((props, ref) => {
             />
           )}
         </div>
-        <div className='song-details'>
-          <span className='song-title'>
-            {player.currentSong === null ? '' : player.currentSong.title}
-          </span>
-          <span className='song-artist'>
-            {player.currentSong === null ? '' : player.currentSong.artist}
-          </span>
-        </div>
+        {player.currentSong === null ? null : (
+          <div className='song-details'>
+            <span className='song-title'>
+              <Link to={`/album/${player.currentSong.albumId}`}>
+                {player.currentSong.title}
+              </Link>
+            </span>
+            <span className='song-artist'>
+              <Link to={`/artist/${player.currentSong.artistId}`}>
+                {player.currentSong.artist}
+              </Link>
+            </span>
+          </div>
+        )}
       </div>
       <div className='player'>
         <div className='player-external-control'>

@@ -25,6 +25,8 @@ const SearchSuggestions = ({ isLoading, songs }) => {
               id={song.id}
               title={song.title}
               artist={song.artist}
+              artistId={song.artistId}
+              albumId={song.albumId}
               albumCover={song.coverArt}
             />
           ))}

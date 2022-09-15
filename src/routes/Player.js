@@ -1,7 +1,10 @@
 import { useRef, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Search from '../ui-elements/Search';
+import ArtistPage from './user-account-routes/ArtistPage';
+import AlbumPage from './user-account-routes/AlbumPage';
+
+import Search from './user-account-routes/Search';
 
 import BottomPlayer from '../persistent-components/BottomPlayer';
 import UserHeader from '../persistent-components/UserHeader';
@@ -39,6 +42,12 @@ const Player = () => {
           </Route>
           <Route path='/search' exact>
             <Search />
+          </Route>
+          <Route path='/artist/:artistId' exact>
+            <ArtistPage />
+          </Route>
+          <Route path='/album/:albumId' exact>
+            <AlbumPage />
           </Route>
         </Switch>
       </div>

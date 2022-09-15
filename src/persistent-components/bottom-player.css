@@ -18,6 +18,10 @@
   margin-left: 5px;
 }
 
+.song-details a:hover {
+  text-decoration: underline;
+}
+
 .song-title {
   font-size: 1rem;
 }
