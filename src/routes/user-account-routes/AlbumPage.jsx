@@ -29,9 +29,7 @@ const AlbumPage = () => {
 
   return (
     <div className='album-page-container'>
-      {albumInfo && (
-        <SongsListInfo listInfo={albumInfo} />
-      )}
+      {albumInfo && <SongsListInfo listInfo={albumInfo} />}
       {albumInfo && <SongsList songsListInfo={albumInfo.songs} />}
     </div>
   );

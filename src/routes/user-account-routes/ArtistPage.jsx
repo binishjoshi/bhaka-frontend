@@ -42,7 +42,10 @@ const ArtistPage = () => {
     <div className='artist-page-container'>
       {artistInfo && (
         <div className='artist-info-container'>
-          <img alt='artist' src={`http://${lanAddress}:5000/${artistInfo.picture}`} />
+          <img
+            alt='artist'
+            src={`http://${lanAddress}:5000/${artistInfo.picture}`}
+          />
           <div className='artist-text-info'>
             <span className='artist-title'>{artistInfo.name}</span>
             <span>{artistInfo.followers}</span>
