@@ -6,6 +6,7 @@ import AlbumPage from './user-account-routes/AlbumPage';
 import Profile from './user-account-routes/Profile';
 import Search from './user-account-routes/Search';
 import PlaylistPage from './user-account-routes/PlaylistPage';
+import Queue from './user-account-routes/Queue';
 
 import BottomPlayer from '../persistent-components/BottomPlayer';
 import UserHeader from '../persistent-components/UserHeader';
@@ -43,6 +44,9 @@ const Player = () => {
           </Route>
           <Route path='/search' exact>
             <Search />
+          </Route>
+          <Route path='/queue' exact>
+            <Queue />
           </Route>
           <Route path='/profile' exact>
             <Profile />

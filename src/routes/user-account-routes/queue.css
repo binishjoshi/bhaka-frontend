@@ -1,0 +1,45 @@
+.queue-container {
+  display: flex;
+}
+
+.now-playing-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.now-playing-container h4 {
+  text-align: center;
+}
+
+.now-playing-container img {
+  height: 300px
+}
+
+.now-playing-text-info {
+  margin-top: 20px;
+}
+
+.now-playing-text-info span {
+  display: block;
+}
+
+.now-playing-text-info span a:hover {
+  text-decoration: underline;
+}
+
+.song-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.queue {
+  margin-left: 30px;
+}
+
+.queue h4 {
+  text-align: center;
+}
+
+.queue-list-container {
+  margin-left: 20px;
+}

@@ -1,4 +1,5 @@
 import { useContext, useEffect, forwardRef } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { PlayerContext } from '../context/player-context';
 
@@ -8,9 +9,11 @@ import './bottom-player.css';
 import PreviousButtonSVG from '../svg/PreviousButtonSVG';
 import NextButtonSVG from '../svg/NextButtonSVG';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import ListSVG from '../svg/ListSVG';
 
 const BottomPlayer = forwardRef((props, ref) => {
   const player = useContext(PlayerContext);
+  const history = useHistory();
 
   const nextSong = () => {
     if (player.queue.length === 0) return;
@@ -56,6 +59,11 @@ const BottomPlayer = forwardRef((props, ref) => {
       </div>
       <div className='player'>
         <div className='player-external-control'>
+          <ListSVG
+            onClick={() => {
+              history.push('/queue');
+            }}
+          />
           <PreviousButtonSVG />
           <NextButtonSVG onClick={nextSong} />
         </div>
