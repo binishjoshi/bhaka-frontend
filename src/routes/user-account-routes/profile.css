@@ -1,0 +1,12 @@
+.user-info {
+  display: flex;
+}
+
+.user-info svg,
+.user-info img {
+  height: 300px;
+}
+
+.user-text-info span {
+  display: block;
+}

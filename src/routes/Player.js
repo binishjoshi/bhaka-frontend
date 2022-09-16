@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import ArtistPage from './user-account-routes/ArtistPage';
 import AlbumPage from './user-account-routes/AlbumPage';
-
+import Profile from './user-account-routes/Profile';
 import Search from './user-account-routes/Search';
 
 import BottomPlayer from '../persistent-components/BottomPlayer';
@@ -42,6 +42,9 @@ const Player = () => {
           </Route>
           <Route path='/search' exact>
             <Search />
+          </Route>
+          <Route path='/profile' exact>
+            <Profile />
           </Route>
           <Route path='/artist/:artistId' exact>
             <ArtistPage />

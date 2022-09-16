@@ -20,6 +20,7 @@ const UserHeader = ({ accountType }) => {
         <>
           <Link to='/player'>Home</Link>
           <Link to='/search'>Search</Link>
+          <Link to='/profile'>Profile</Link>
           <Link to='/' onClick={signOutHandler}>
             Sign Out
           </Link>
