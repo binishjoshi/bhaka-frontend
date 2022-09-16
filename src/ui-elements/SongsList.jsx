@@ -1,4 +1,4 @@
-import PlusSVG from '../svg/PlusSVG';
+import PlaylistAddSVG from '../svg/PlaylistAddSVG';
 import './songs-list.css';
 
 const SongsList = ({ songsListInfo }) => {
@@ -20,7 +20,7 @@ const SongsList = ({ songsListInfo }) => {
               <td>{song.songTitle}</td>
               <td>{song.songDuration}</td>
               <td>
-                <PlusSVG />
+                <PlaylistAddSVG />
               </td>
             </tr>
           ))}

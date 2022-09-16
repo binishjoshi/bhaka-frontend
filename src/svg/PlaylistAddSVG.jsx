@@ -1,8 +1,8 @@
-const PlusSVG = (props) => {
+const PlaylistAddSVG = (props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='icon icon-tabler icon-tabler-plus'
+      className='icon icon-tabler icon-tabler-playlist-add'
       width='24'
       height='24'
       viewBox='0 0 24 24'
@@ -14,10 +14,13 @@ const PlusSVG = (props) => {
       {...props}
     >
       <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-      <line x1='12' y1='5' x2='12' y2='19'></line>
-      <line x1='5' y1='12' x2='19' y2='12'></line>
+      <path d='M19 8h-14'></path>
+      <path d='M5 12h9'></path>
+      <path d='M11 16h-6'></path>
+      <path d='M15 16h6'></path>
+      <path d='M18 13v6'></path>
     </svg>
   );
 };
 
-export default PlusSVG;
+export default PlaylistAddSVG;
