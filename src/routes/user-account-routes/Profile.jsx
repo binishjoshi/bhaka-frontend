@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { lanAddress } from '../../.lanAddress';
 import { useHttpClient } from '../../hooks/http-hook';
 
+import Button from '../../ui-elements/Button';
+import CreatePlaylistModal from '../../ui-elements/CreatePlaylistModal';
+
 import PhotoSVG from '../../svg/PhotoSVG';
 
 import './profile.css';
@@ -10,6 +13,7 @@ import './profile.css';
 const Profile = () => {
   let { userId } = useParams();
   const [userInfo, setUserInfo] = useState(false);
+  const [showCreatePlaylist, setShowCreatePlaylist] = useState(false);
   //eslint-disable-next-line
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const storedToken = JSON.parse(localStorage.getItem('userData')).token;
@@ -34,6 +38,14 @@ const Profile = () => {
     fetchUserInfo(userId, storedToken);
   }, [userId, storedToken, sendRequest]);
 
+  const handleCreatePlaylist = () => {
+    setShowCreatePlaylist(true);
+  };
+
+  const closeCreatePlaylistModal = () => {
+    setShowCreatePlaylist(false);
+  }
+
   return (
     <div className='profile-container'>
       {userInfo && (
@@ -55,7 +67,10 @@ const Profile = () => {
           </div>
         </div>
       )}
-      <div className='user-playlists-container'></div>
+      <CreatePlaylistModal show={showCreatePlaylist} onClose={closeCreatePlaylistModal} />
+      <div className='user-playlists-container'>
+        <Button onClick={handleCreatePlaylist} hover>Create Playlist</Button>
+      </div>
     </div>
   );
 };

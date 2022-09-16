@@ -1,0 +1,8 @@
+.success-message {
+  display: block;
+  margin-top: 10px;
+}
+
+.success-message a:hover {
+  text-decoration: underline;
+}

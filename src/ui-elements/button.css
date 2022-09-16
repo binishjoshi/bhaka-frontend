@@ -3,3 +3,7 @@ button {
   border: 0;
   padding: 6px;
 }
+
+.button__hover:hover {
+  cursor: pointer;
+}
