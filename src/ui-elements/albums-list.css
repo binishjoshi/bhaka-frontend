@@ -1,0 +1,33 @@
+.albums-list-table {
+  table-layout: fixed;
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 4rem;
+}
+
+.album-table-heading th:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+
+.album-table-heading th:nth-child(2) {
+  width: 50%;
+  text-align: left;
+}
+
+.album-table-heading th:nth-child(3) {
+  width: 15%;
+  text-align: center;
+}
+
+.album-row td:nth-child(1) {
+  text-align: center;
+}
+
+.album-row td:nth-child(3) {
+  text-align: center;
+}
+
+.album-title:hover {
+  text-decoration: underline;
+}

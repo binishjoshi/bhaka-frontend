@@ -1,0 +1,19 @@
+.artist-info-container {
+  display: flex;
+}
+
+.artist-info-container img {
+  height: 300px;
+}
+
+.artist-text-info {
+  margin-left: 3rem;
+}
+
+.artist-text-info span {
+  display: block;
+}
+
+.artist-title {
+  font-size: 3rem;
+}
