@@ -1,0 +1,24 @@
+.list-info-container {
+  display: flex;
+}
+
+.list-info-container img {
+  height: 300px;
+}
+
+.list-text-info {
+  margin-left: 3rem;
+}
+
+.list-text-info span {
+  display: block
+}
+
+.list-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.list-artist:hover {
+  text-decoration: underline;
+}

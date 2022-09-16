@@ -1,0 +1,33 @@
+.songs-list-table {
+  table-layout: fixed;
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 4rem;
+}
+
+thead tr {
+  border-bottom: 1px solid aliceblue;
+}
+
+thead th:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+
+thead th:nth-child(2) {
+  width: 60%;
+  text-align: left;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+th,
+td {
+  padding: 5px;
+}
+
+tr td:nth-child(1) {
+  text-align: center;
+}
