@@ -20,7 +20,6 @@ const BottomPlayer = forwardRef((props, ref) => {
   };
 
   useEffect(() => {
-    console.log(player.currentSong);
     if (player.currentSong !== null && player.next) {
       player.playAudio();
       player.setNext(false);

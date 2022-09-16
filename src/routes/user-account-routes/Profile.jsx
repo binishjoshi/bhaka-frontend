@@ -30,7 +30,6 @@ const Profile = () => {
           }
         );
         setUserInfo(responseData);
-        console.log(responseData);
       } catch (error) {
         console.log(error);
       }
@@ -44,7 +43,7 @@ const Profile = () => {
 
   const closeCreatePlaylistModal = () => {
     setShowCreatePlaylist(false);
-  }
+  };
 
   return (
     <div className='profile-container'>
@@ -67,9 +66,14 @@ const Profile = () => {
           </div>
         </div>
       )}
-      <CreatePlaylistModal show={showCreatePlaylist} onClose={closeCreatePlaylistModal} />
+      <CreatePlaylistModal
+        show={showCreatePlaylist}
+        onClose={closeCreatePlaylistModal}
+      />
       <div className='user-playlists-container'>
-        <Button onClick={handleCreatePlaylist} hover>Create Playlist</Button>
+        <Button onClick={handleCreatePlaylist} hover>
+          Create Playlist
+        </Button>
       </div>
     </div>
   );
