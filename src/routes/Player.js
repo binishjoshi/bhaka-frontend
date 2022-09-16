@@ -5,6 +5,7 @@ import ArtistPage from './user-account-routes/ArtistPage';
 import AlbumPage from './user-account-routes/AlbumPage';
 import Profile from './user-account-routes/Profile';
 import Search from './user-account-routes/Search';
+import PlaylistPage from './user-account-routes/PlaylistPage';
 
 import BottomPlayer from '../persistent-components/BottomPlayer';
 import UserHeader from '../persistent-components/UserHeader';
@@ -51,6 +52,9 @@ const Player = () => {
           </Route>
           <Route path='/album/:albumId' exact>
             <AlbumPage />
+          </Route>
+          <Route path='/playlist/:playlistId' exact>
+            <PlaylistPage />
           </Route>
         </Switch>
       </div>

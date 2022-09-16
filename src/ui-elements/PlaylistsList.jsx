@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './playlists-list.css';
 
 const PlaylistsList = ({ playlistsInfo }) => {
@@ -6,7 +7,7 @@ const PlaylistsList = ({ playlistsInfo }) => {
       <thead>
         <tr>
           <th scope='col'>#</th>
-          <th scope='col'>Song</th>
+          <th scope='col'>Playlist Name</th>
           <th scope='col'>Duration</th>
         </tr>
       </thead>
@@ -15,7 +16,9 @@ const PlaylistsList = ({ playlistsInfo }) => {
           {playlistsInfo.map((playlist) => (
             <tr key={playlist.id}>
               <td>{playlistsInfo.indexOf(playlist) + 1}</td>
-              <td>{playlist.name}</td>
+              <td>
+                <Link to={`/playlist/${playlist.id}`}>{playlist.name}</Link>
+              </td>
               <td>{playlist.duration}</td>
             </tr>
           ))}

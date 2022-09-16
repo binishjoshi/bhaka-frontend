@@ -9,10 +9,12 @@ import CreatePlaylistModal from '../../ui-elements/CreatePlaylistModal';
 import PhotoSVG from '../../svg/PhotoSVG';
 
 import './profile.css';
+import PlaylistsList from '../../ui-elements/PlaylistsList';
 
 const Profile = () => {
   let { userId } = useParams();
   const [userInfo, setUserInfo] = useState(false);
+  const [playlistsInfo, setPlaylistsInfo] = useState([]);
   const [showCreatePlaylist, setShowCreatePlaylist] = useState(false);
   //eslint-disable-next-line
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -30,10 +32,30 @@ const Profile = () => {
           }
         );
         setUserInfo(responseData);
+
+        if (responseData.createdPlaylists.length !== 0) {
+          let playlistInfoArray = [];
+          for (const playlistId of responseData.createdPlaylists) {
+            try {
+              const responseData = await sendRequest(
+                `http://${lanAddress}:5000/api/playlists/${playlistId}`
+              );
+              playlistInfoArray.push({
+                id: responseData.id,
+                name: responseData.name.trimEnd(),
+                duration: responseData.duration,
+              });
+            } catch (error) {
+              console.log(error);
+            }
+          }
+          setPlaylistsInfo(playlistInfoArray);
+        }
       } catch (error) {
         console.log(error);
       }
     };
+
     fetchUserInfo(userId, storedToken);
   }, [userId, storedToken, sendRequest]);
 
@@ -74,6 +96,9 @@ const Profile = () => {
         <Button onClick={handleCreatePlaylist} hover>
           Create Playlist
         </Button>
+        {userInfo && userInfo.createdPlaylists.length !== 0 && (
+          <PlaylistsList playlistsInfo={playlistsInfo} />
+        )}
       </div>
     </div>
   );

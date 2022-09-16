@@ -1,0 +1,10 @@
+.playlists-list-table {
+  table-layout: fixed;
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 4rem;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
