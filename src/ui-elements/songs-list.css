@@ -31,3 +31,11 @@ td {
 tr td:nth-child(1) {
   text-align: center;
 }
+
+tr td:nth-child(4) {
+  text-align: center;
+}
+
+td svg {
+  cursor: pointer;
+}

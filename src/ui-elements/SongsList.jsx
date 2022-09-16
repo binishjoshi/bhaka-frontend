@@ -1,3 +1,4 @@
+import PlusSVG from '../svg/PlusSVG';
 import './songs-list.css';
 
 const SongsList = ({ songsListInfo }) => {
@@ -8,6 +9,7 @@ const SongsList = ({ songsListInfo }) => {
           <th scope='col'>#</th>
           <th scope='col'>Song</th>
           <th scope='col'>Duration</th>
+          <th scope='col'>Add to playlist</th>
         </tr>
       </thead>
       {songsListInfo && (
@@ -17,6 +19,9 @@ const SongsList = ({ songsListInfo }) => {
               <td>{songsListInfo.indexOf(song) + 1}</td>
               <td>{song.songTitle}</td>
               <td>{song.songDuration}</td>
+              <td>
+                <PlusSVG />
+              </td>
             </tr>
           ))}
         </tbody>
