@@ -1,0 +1,13 @@
+.play-playlist-container {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.play-playlist-container:hover {
+  cursor: pointer;
+}
+
+.play-playlist-container svg {
+  margin-right: 10px;
+}
