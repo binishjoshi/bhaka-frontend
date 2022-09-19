@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import './albums-list.css';
 
-const AlbumsList = ({ albumsList }) => {
+const AlbumsList = ({ albumsList, includeInterval = true }) => {
   return (
     <table className='albums-list-table'>
       <thead className='album-table-heading'>
@@ -10,7 +10,7 @@ const AlbumsList = ({ albumsList }) => {
           <th scope='col'>#</th>
           <th scope='col'>Album</th>
           <th scope='col'>Type</th>
-          <th scope='col'>Interval</th>
+          {includeInterval && <th scope='col'>Interval</th>}
         </tr>
       </thead>
       <tbody>
@@ -23,7 +23,7 @@ const AlbumsList = ({ albumsList }) => {
               </Link>
             </td>
             <td>{album.type}</td>
-            <td>{album.interval}</td>
+            {includeInterval && <td>{album.interval}</td>}
           </tr>
         ))}
       </tbody>

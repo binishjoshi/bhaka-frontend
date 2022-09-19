@@ -53,7 +53,9 @@ const ArtistPage = () => {
           </div>
         </div>
       )}
-      {artistAlbums && <AlbumsList albumsList={artistAlbums} />}
+      {artistAlbums && (
+        <AlbumsList albumsList={artistAlbums} includeInterval={false} />
+      )}
     </div>
   );
 };
