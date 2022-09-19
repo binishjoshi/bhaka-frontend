@@ -111,9 +111,7 @@ const NewAlbum = () => {
       <Modal
         header='Album successfully created'
         show={createSuccess}
-        footer={
-          <Link to={`/status/album/${albumId}`}>Go to album status page</Link>
-        }
+        footer={<Link to={`/album/${albumId}`}>Go to album</Link>}
       />
       <form onSubmit={handleFormSubmit}>
         <Input

@@ -8,6 +8,7 @@ import NewAlbum from './artist-account-routes/NewAlbum';
 import NewArtist from './artist-account-routes/NewArtist';
 
 import UserHeader from '../persistent-components/UserHeader';
+import AlbumPage from './user-account-routes/AlbumPage';
 
 const ArtistAccount = () => {
   return (
@@ -32,6 +33,9 @@ const ArtistAccount = () => {
           </Route>
           <Route path='/status/album/:albumId' exact>
             <AlbumStatus />
+          </Route>
+          <Route path='/album/:albumId' exact>
+            <AlbumPage />
           </Route>
         </Switch>
       </div>

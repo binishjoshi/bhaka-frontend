@@ -30,7 +30,7 @@ const UserHeader = ({ accountType }) => {
       return (
         <>
           <Link to='/artist-status'>Artist Status</Link>
-          <Link to='/album-status'>Album Status</Link>
+          <Link to='/new-album'>Create New Album</Link>
           <Link to='/' onClick={signOutHandler}>
             Sign Out
           </Link>
