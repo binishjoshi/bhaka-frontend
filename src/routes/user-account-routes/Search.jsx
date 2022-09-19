@@ -12,7 +12,9 @@ const Search = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchedSongs, setSearchedSongs] = useState([]);
-  const httpClient = useHttpClient();
+  const [userPlaylists, setUserPlaylists] = useState(false);
+  // eslint-disable-next-line
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const searchBoxRef = useRef(null);
   const isFirstRender = useRef(true);
 
@@ -21,7 +23,25 @@ const Search = () => {
       isFirstRender.current = false;
       searchBoxRef.current.focus();
     }
-  });
+
+    const storedToken = JSON.parse(localStorage.getItem('userData')).token;
+    const getUserPlaylists = async (token) => {
+      try {
+        const responseData = await sendRequest(
+          `http://${lanAddress}:5000/api/users/playlists`,
+          'GET',
+          null,
+          {
+            Authorization: `Bearer ${token}`,
+          }
+        );
+        setUserPlaylists(responseData.userPlaylists);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserPlaylists(storedToken);
+  }, [sendRequest]);
 
   const searchChangeHandler = async (event) => {
     setSearchQuery(event.target.value);
@@ -31,7 +51,7 @@ const Search = () => {
     } else {
       setShowSearch(true);
 
-      const searchResponse = await httpClient.sendRequest(
+      const searchResponse = await sendRequest(
         `http://${lanAddress}:5000/api/songs/search`,
         'POST',
         JSON.stringify({
@@ -66,10 +86,11 @@ const Search = () => {
           autoComplete='off'
           ref={searchBoxRef}
         />
-        {showSearch && (
+        {showSearch && userPlaylists && (
           <SearchSuggestions
-            isLoading={httpClient.isLoading}
+            isLoading={isLoading}
             songs={searchedSongs}
+            userPlaylists={userPlaylists}
           />
         )}
       </div>

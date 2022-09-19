@@ -1,0 +1,10 @@
+.playlists-modal span {
+  display: block;
+  padding: 5px;
+  border-radius: 0.5rem;
+}
+
+.playlists-modal span:hover {
+  background: #303d49;
+  cursor: pointer;
+}

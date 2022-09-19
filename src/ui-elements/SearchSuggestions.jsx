@@ -2,7 +2,7 @@ import SearchSuggestion from './SearchSuggestion';
 import ThreeDotsLoadingSVG from '../svg/ThreeDotLoadingSVG';
 import './search-suggestions.css';
 
-const SearchSuggestions = ({ isLoading, songs }) => {
+const SearchSuggestions = ({ isLoading, songs, userPlaylists }) => {
   const SearchContent = () => {
     if (isLoading) {
       return (
@@ -28,6 +28,7 @@ const SearchSuggestions = ({ isLoading, songs }) => {
               artistId={song.artistId}
               albumId={song.albumId}
               albumCover={song.coverArt}
+              userPlaylists={userPlaylists}
             />
           ))}
         </ul>
