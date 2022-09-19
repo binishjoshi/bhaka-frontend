@@ -52,12 +52,12 @@ const PlaylistPage = () => {
         player.setQueue([
           ...player.queue,
           {
-            id: playlistInfo.songs[0].songId,
-            title: playlistInfo.songs[0].songTitle,
-            artist: playlistInfo.songs[0].artist,
-            artistId: playlistInfo.songs[0].artistId,
-            albumId: playlistInfo.songs[0].albumId,
-            albumCover: playlistInfo.songs[0].albumCover,
+            id: song.songId,
+            title: song.songTitle,
+            artist: song.artist,
+            artistId: song.artistId,
+            albumId: song.albumId,
+            albumCover: song.albumCover,
           },
         ]);
       }
