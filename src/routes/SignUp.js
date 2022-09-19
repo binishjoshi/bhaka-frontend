@@ -60,7 +60,8 @@ const SignUp = ({ route }) => {
       auth.login(
         formState.inputs.username.value,
         responseData.token,
-        responseData.id
+        responseData.id,
+        responseData.preference
       );
       if (route) {
         history.push('/artist-account');

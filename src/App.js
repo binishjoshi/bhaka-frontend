@@ -22,20 +22,23 @@ const App = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [token, setToken] = useState(false);
   const [id, setId] = useState(false);
+  const [preference, setPreference] = useState(false);
   const [checking, setChecking] = useState(true);
   const [username, setUsername] = useState(null);
   const [accountType, setAccountType] = useState(null);
 
-  const login = useCallback((username, token, id) => {
+  const login = useCallback((username, token, id, preference) => {
     setToken(token);
     setUsername(username);
     setId(id);
+    setPreference(preference);
     localStorage.setItem(
       'userData',
       JSON.stringify({
         username,
         token,
         id,
+        preference,
       })
     );
   }, []);
@@ -45,6 +48,10 @@ const App = () => {
     setUsername(null);
     localStorage.removeItem('userData');
     setAccountType(null);
+  }, []);
+
+  const changePreference = useCallback((preference) => {
+    setPreference(preference);
   }, []);
 
   useEffect(() => {
@@ -67,7 +74,12 @@ const App = () => {
       }
     };
     if (storedData && storedData.token) {
-      login(storedData.username, storedData.token, storedData.id);
+      login(
+        storedData.username,
+        storedData.token,
+        storedData.id,
+        storedData.preference
+      );
       checkUser(storedData.token);
     }
     setChecking(false);
@@ -114,6 +126,8 @@ const App = () => {
         isLoggedIn: !!token,
         token: token,
         id: id,
+        preference: preference,
+        changePreference: changePreference,
         login: login,
         logout: logout,
         username: username,
