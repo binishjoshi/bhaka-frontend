@@ -14,18 +14,26 @@ const SongsList = ({ songsListInfo, addToPlaylist }) => {
       </thead>
       {songsListInfo && (
         <tbody>
-          {songsListInfo.map((song) => (
-            <tr key={songsListInfo.indexOf(song) + 1}>
-              <td>{songsListInfo.indexOf(song) + 1}</td>
-              <td>{song.songTitle}</td>
-              <td>{song.songDuration}</td>
-              {addToPlaylist && (
+          {songsListInfo.map((song) => {
+            const durationMinute = Math.floor(song.songDuration / 60);
+            const durationSeconds = Math.floor(
+              song.songDuration - durationMinute * 60
+            );
+            return (
+              <tr key={songsListInfo.indexOf(song) + 1} className='song-row'>
+                <td>{songsListInfo.indexOf(song) + 1}</td>
+                <td>{song.songTitle}</td>
                 <td>
-                  <PlaylistAddSVG />
+                  {durationMinute}:{durationSeconds}
                 </td>
-              )}
-            </tr>
-          ))}
+                {addToPlaylist && (
+                  <td>
+                    <PlaylistAddSVG />
+                  </td>
+                )}
+              </tr>
+            );
+          })}
         </tbody>
       )}
     </table>

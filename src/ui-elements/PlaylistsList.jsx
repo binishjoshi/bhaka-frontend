@@ -13,15 +13,22 @@ const PlaylistsList = ({ playlistsInfo }) => {
       </thead>
       {playlistsInfo && (
         <tbody>
-          {playlistsInfo.map((playlist) => (
-            <tr key={playlist.id}>
-              <td>{playlistsInfo.indexOf(playlist) + 1}</td>
-              <td>
-                <Link to={`/playlist/${playlist.id}`}>{playlist.name}</Link>
-              </td>
-              <td>{playlist.duration}</td>
-            </tr>
-          ))}
+          {playlistsInfo.map((playlist) => {
+            const durationMinute = Math.floor(playlist.duration / 60);
+            const durationSeconds = (playlist.duration - durationMinute) * 60;
+            console.log(durationSeconds);
+            return (
+              <tr key={playlistsInfo.indexOf(playlist) + 1}>
+                <td>{playlistsInfo.indexOf(playlist) + 1}</td>
+                <td>
+                  <Link to={`/playlist/${playlist.id}`}>{playlist.name}</Link>
+                </td>
+                <td>
+                  {durationMinute}:{durationSeconds}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       )}
     </table>

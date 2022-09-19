@@ -83,7 +83,6 @@ const SearchSuggestion = ({
 
   const handleAddToPlaylist = async (playlistId, songId) => {
     const storedToken = JSON.parse(localStorage.getItem('userData')).token;
-    console.log(storedToken);
 
     try {
       const responseData = await sendRequest(

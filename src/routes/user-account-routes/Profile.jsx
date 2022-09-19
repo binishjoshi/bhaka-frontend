@@ -46,8 +46,8 @@ const Profile = () => {
               );
               playlistInfoArray.push({
                 id: responseData.id,
-                name: responseData.name.trimEnd(),
-                duration: responseData.duration,
+                name: responseData.title.trimEnd(),
+                duration: responseData.durationInSeconds,
               });
             } catch (error) {
               console.log(error);
