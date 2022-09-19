@@ -65,7 +65,7 @@ const SignIn = ({ route }) => {
   return (
     <div className='form-container'>
       <ErrorModal error={error} onClear={clearError} />
-      <h3>SignIn</h3>
+      <h3>{route ? 'Artist Account ' : ''}Sign In</h3>
       <form onSubmit={signInHandler}>
         <Input
           element='input'
