@@ -15,10 +15,14 @@ const PlaylistsList = ({ playlistsInfo }) => {
         <tbody>
           {playlistsInfo.map((playlist) => {
             const durationMinute = Math.floor(playlist.duration / 60);
-            const durationSeconds = (playlist.duration - durationMinute) * 60;
-            console.log(durationSeconds);
+            const durationSeconds = Math.floor(
+              playlist.duration - durationMinute * 60
+            );
             return (
-              <tr key={playlistsInfo.indexOf(playlist) + 1}>
+              <tr
+                className='playlist-row'
+                key={playlistsInfo.indexOf(playlist) + 1}
+              >
                 <td>{playlistsInfo.indexOf(playlist) + 1}</td>
                 <td>
                   <Link to={`/playlist/${playlist.id}`}>{playlist.name}</Link>

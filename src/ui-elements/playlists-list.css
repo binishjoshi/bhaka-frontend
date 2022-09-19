@@ -8,3 +8,7 @@
 td a:hover {
   text-decoration: underline;
 }
+
+.playlist-row td:nth-child(3) {
+  text-align: center;
+}
