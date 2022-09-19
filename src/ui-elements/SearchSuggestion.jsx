@@ -116,18 +116,20 @@ const SearchSuggestion = ({
           {userPlaylists.length === 0 ? (
             <label>No playlists found.</label>
           ) : (
-            userPlaylists.map((playlist) => {
-              return (
-                <div key={playlist.id}>
-                  <h4>Choose a playlist</h4>
-                  <span onClick={() => handleAddToPlaylist(playlist.id, id)}>
-                    {playlist.name}
-                    <br />
-                    {isLoading && 'Adding to playlist'}
-                  </span>
-                </div>
-              );
-            })
+            <>
+              <h4>Choose a playlist</h4>
+              {userPlaylists.map((playlist) => {
+                return (
+                  <div key={playlist.id}>
+                    <span onClick={() => handleAddToPlaylist(playlist.id, id)}>
+                      {playlist.name}
+                      <br />
+                      {isLoading && 'Adding to playlist'}
+                    </span>
+                  </div>
+                );
+              })}
+            </>
           )}
         </Modal>
 
