@@ -21,18 +21,21 @@ const App = () => {
   // eslint-disable-next-line
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [token, setToken] = useState(false);
+  const [id, setId] = useState(false);
   const [checking, setChecking] = useState(true);
   const [username, setUsername] = useState(null);
   const [accountType, setAccountType] = useState(null);
 
-  const login = useCallback((username, token) => {
+  const login = useCallback((username, token, id) => {
     setToken(token);
     setUsername(username);
+    setId(id);
     localStorage.setItem(
       'userData',
       JSON.stringify({
         username,
         token,
+        id,
       })
     );
   }, []);
@@ -64,7 +67,7 @@ const App = () => {
       }
     };
     if (storedData && storedData.token) {
-      login(storedData.username, storedData.token);
+      login(storedData.username, storedData.token, storedData.id);
       checkUser(storedData.token);
     }
     setChecking(false);
@@ -110,6 +113,7 @@ const App = () => {
       value={{
         isLoggedIn: !!token,
         token: token,
+        id: id,
         login: login,
         logout: logout,
         username: username,

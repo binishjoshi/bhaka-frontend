@@ -57,7 +57,11 @@ const SignUp = ({ route }) => {
           'Content-Type': 'application/json',
         }
       );
-      auth.login(formState.inputs.username.value, responseData.token);
+      auth.login(
+        formState.inputs.username.value,
+        responseData.token,
+        responseData.id
+      );
       if (route) {
         history.push('/artist-account');
       } else {

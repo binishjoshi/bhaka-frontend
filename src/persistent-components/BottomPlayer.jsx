@@ -1,6 +1,7 @@
 import { useContext, useEffect, forwardRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { AuthContext } from '../context/auth-context';
 import { PlayerContext } from '../context/player-context';
 
 import { lanAddress } from '../.lanAddress';
@@ -13,6 +14,7 @@ import ListSVG from '../svg/ListSVG';
 
 const BottomPlayer = forwardRef((props, ref) => {
   const player = useContext(PlayerContext);
+  const user = useContext(AuthContext);
   const history = useHistory();
 
   const nextSong = () => {
@@ -72,7 +74,7 @@ const BottomPlayer = forwardRef((props, ref) => {
             src={
               player.currentSong === null
                 ? ''
-                : `http://${lanAddress}:5000/api/songs/stream/${player.currentSong.id}/12e66066-38c7-4a3d-b357-b68ef2249e0c`
+                : `http://${lanAddress}:5000/api/songs/stream/${player.currentSong.id}/${user.id}`
             }
             type='audio/ogg'
           />
