@@ -15,7 +15,7 @@ const SongsList = ({ songsListInfo, addToPlaylist }) => {
       {songsListInfo && (
         <tbody>
           {songsListInfo.map((song) => (
-            <tr key={song.songId}>
+            <tr key={songsListInfo.indexOf(song) + 1}>
               <td>{songsListInfo.indexOf(song) + 1}</td>
               <td>{song.songTitle}</td>
               <td>{song.songDuration}</td>
